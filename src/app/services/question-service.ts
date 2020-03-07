@@ -1,3 +1,4 @@
+import { RadioQuestion } from './../types/radio-question';
 import { SelectQuestion } from './../types/select-question';
 import { QuestionBase } from './../types/question-base';
 import { Injectable } from '@angular/core';
@@ -30,6 +31,16 @@ export class QuestionService {
           {key: 'amarelo',  value: 'amarelo'},
         ],
         order: 5
+      }),
+
+      new RadioQuestion({
+        key: 'vivo',
+        label: 'Vivo',
+        options: [
+          {key: 'true',  value: 'Sim'},
+          {key: 'false',  value: 'Não'}
+        ],
+        order: 6
       }),
 
       new InputQuestion({

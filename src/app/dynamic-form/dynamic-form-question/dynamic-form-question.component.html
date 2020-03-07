@@ -10,7 +10,15 @@
           <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
         </select>
 
+        <div *ngSwitchCase="'radio'" style="margin:2%" class="row">
+          <div *ngFor="let opt of question.options" style="margin-left: 23%;" class="col-3">
+            <input [id]="question.key" type="radio" [value]="opt.key" [name]="question.key" class="form-check-input"
+              [formControlName]="question.key"/>
+              <label class="form-check-label">
+                {{opt.value}}
+            </label>
+          </div>
+        </div>
       </div>
 
-      <div class="errorMessage" *ngIf="!isValid">{{question.label}} tem um erro aqui</div>
 </div>
