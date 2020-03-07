@@ -1,0 +1,12 @@
+.errorMessage {
+  color: red;
+  margin:1%
+}
+
+div {
+  display: inline-block;
+  margin-top: 2%;
+}
+
+
+.form-control{min-width:350px;}

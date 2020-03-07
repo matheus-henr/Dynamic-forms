@@ -13,43 +13,52 @@ export class QuestionService {
   const questions: QuestionBase<string>[] = [
 
       new SelectQuestion({
-        key: 'brave',
-        label: 'Bravery Rating',
+        key: 'sexo',
+        label: 'Sexo',
         options: [
-          {key: 'solid',  value: 'Solid'},
-          {key: 'great',  value: 'Great'},
-          {key: 'good',   value: 'Good'},
-          {key: 'unproven', value: 'Unproven'},
-          {key: 'unproven', value: 'Unproven'}
+          {key: 'M',  value: 'Masculino'},
+          {key: 'F',  value: 'Feminino'},
+        ],
+        order: 4
+      }),
+      new SelectQuestion({
+        key: 'raca',
+        label: 'Raça',
+        options: [
+          {key: 'branco',  value: 'Branco'},
+          {key: 'negro',  value: 'Negro'},
+          {key: 'amarelo',  value: 'amarelo'},
         ],
         order: 5
       }),
 
       new InputQuestion({
         key: 'firstName',
-        label: 'First name',
+        label: 'Nome',
         value: '',
-        order: 2,
+        order: 1,
         validators: {
           required: true,
-          maxLength: 8
+          minLength: 2,
+          maxLength: 20
         },
       }),
 
       new InputQuestion({
         key: 'lastName',
-        label: 'Last name',
+        label: 'Sobrenome',
         value: '',
-        order: 3,
+        order: 2,
       }),
 
       new InputQuestion({
         key: 'emailAddress',
         label: 'Email',
         type: 'email',
-        order: 4,
+        order: 3,
         validators: {
           email: true,
+          required: true
         },
       })
     ];
