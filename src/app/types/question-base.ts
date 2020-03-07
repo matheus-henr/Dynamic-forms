@@ -2,7 +2,15 @@ export class QuestionBase<T> {
   value: T;
   key: string;
   label: string;
-  required: boolean;
+  validators: {
+    required?: boolean;
+    max?: number;
+    min?: number;
+    minLength?: number;
+    maxLength?: number;
+    pattern?: string;
+    email?: boolean;
+  };
   order: number;
   controlType: string;
   type: string;
@@ -12,15 +20,15 @@ export class QuestionBase<T> {
       value?: T,
       key?: string,
       label?: string,
-      required?: boolean,
       order?: number,
       controlType?: string,
-      type?: string
+      type?: string,
+      validators?: {}
     } = {}) {
     this.value = options.value;
     this.key = options.key || '';
     this.label = options.label || '';
-    this.required = !!options.required;
+    this.validators = options.validators;
     this.order = options.order === undefined ? 1 : options.order;
     this.controlType = options.controlType || '';
     this.type = options.type || '';

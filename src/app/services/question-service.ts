@@ -10,7 +10,7 @@ export class QuestionService {
 
   getQuestions() {
 
-    let questions: QuestionBase<string>[] = [
+  const questions: QuestionBase<string>[] = [
 
       new SelectQuestion({
         key: 'brave',
@@ -28,34 +28,32 @@ export class QuestionService {
       new InputQuestion({
         key: 'firstName',
         label: 'First name',
-        value: 'Matheus',
-        required: true,
-        order: 2
+        value: '',
+        order: 2,
+        validators: {
+          required: true,
+          maxLength: 8
+        },
       }),
 
       new InputQuestion({
         key: 'lastName',
         label: 'Last name',
-        value: 'Caldeira',
-        required: false,
-        order: 3
-      }),
-      new InputQuestion({
-        key: 'lastName',
-        label: 'Luan viado',
-        value: 'Caldeira',
-        required: false,
-        order: 1
+        value: '',
+        order: 3,
       }),
 
       new InputQuestion({
         key: 'emailAddress',
         label: 'Email',
         type: 'email',
-        order: 4
+        order: 4,
+        validators: {
+          email: true,
+        },
       })
     ];
 
-    return of(questions.sort((a, b) => a.order - b.order));
+  return of(questions.sort((a, b) => a.order - b.order));
   }
 }
